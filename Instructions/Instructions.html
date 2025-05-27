@@ -1,0 +1,216 @@
+{{ extends "global/Slider.html" }}
+
+{{ block Slides }}
+<!-- Slide 1a -->
+<div class="slide"> 
+    <div class="text-container">
+        <h2>Introduction</h2>
+        <ul>
+            <li>You are participating in a study conducted by the University of Amsterdam.</li>
+            <li>Your decisions and responses will be recorded <b>anonymously</b>.</li>
+            <li>Your data will <b>only</b> be used for <b>academic research</b>.</li>
+            <li>You can stop your participation at any time; your data will be deleted.</li>
+            <li>Your choices may lead to <b>bonus payments</b> and <b>tree donations</b>.</li>
+            <li><b>One participant</b> will be randomly selected for bonus payout.</li>
+            <li>The experiment lasts approximately <b>20–25 minutes</b>.</li>
+        </ul>
+        <i>Press → to continue reading</i>
+    </div>
+    <div class="img-container"> 
+        <img src="{{ static 'global/figures/example1.png' }}" class="img-instructions" alt="example of decision screen" id="img-example1"> 
+    </div>
+</div>
+
+<!-- Slide 2a -->
+<div class="slide vertical"> 
+    <div class="img-container"> 
+        <img src="{{ static 'global/figures/example2.png' }}" class="img-instructions" alt="example of decision screen" id="img-example2"> 
+    </div>
+    <div class="text-container">
+        <h2>The Experiment</h2>
+        <ul>
+            <li>You will complete <b>72 decisions</b> divided into <b>two blocks of 36</b>.</li>
+            <li>The products are fictional, but your decisions can lead to real rewards.</li>
+            <li>Each decision may earn you a <b>bonus</b> and plant <b>trees</b> in your name.</li>
+            <li><i>Note: there are no physical products — only real consequences.</i></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Slide 2b -->
+<div class="slide vertical"> 
+    <div class="text-container">
+        <h2>Your Decisions</h2>
+        <ul>
+            <li>In each round, you will choose between <b>two products</b>.</li>
+            <li>They differ in:
+                <ul>
+                    <li><b>Price</b> — lower price = more bonus money</li>
+                    <li><b>Quality</b> — 1 or 2 stars (more stars = better quality)</li>
+                    <li><b>Sustainability</b> — shown using EU energy labels: <b>{{ labelName }}</b><br>
+                        <span class="greenbold"> {{ labelMax }}</span><br>
+                        <span class="redbold"> {{ labelMin }}</span>
+                    </li>
+                </ul>
+            </li>
+            <li>At the start of each round, all values are hidden.</li>
+            <li>To reveal them:
+                <ul>
+                    <li><b>Hover over a row</b> (e.g., “Price” or “Sustainability”).</li>
+                    <li>The values for both products will appear one by one.</li>
+                </ul>
+            </li>
+            <li>The label format will change halfway through, but your task stays the same.</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Slide 2c -->
+<div class="slide vertical"> 
+    <div class="text-container">
+        <h2>Bonus & Tree Donation</h2>
+        <ul>
+            <li><b>One participant</b> will be randomly selected for payment.</li>
+            <li>Then, <b>one decision round</b> will be chosen at random from their 72 trials.</li>
+            <li>The payout will be based on that choice:
+                <ul>
+                    <li><b>Bonus = Quality (stars) – Price</b></li>
+                    <li><b>Sustainability</b> → determines how many <b>trees are planted</b></li>
+                </ul>
+            </li>
+            <li>Tree donations are symbolic and made via a certified organization.</li>
+            <li><i>You won’t know if you’re selected — so treat each decision as important.</i></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Slide 3: Control Questions -->
+<div class="slide"> 
+    <div class="text-container questions-container">
+        <ul>
+            <!--Question 1-->
+            <li>
+                <div class="inst-question">
+                    <label for="Q1"> Every product has 3 different attributes </label>
+                </div>
+                <div class="answer-field">
+                    <select name="Q1" id="Q1" class="dropdown ControlQuestions">
+                        <option value="nothing">--Select--</option>
+                        <option value="a">Yes</option>
+                        <option value="b">No</option>
+                        <option value="c">Perhaps</option>
+                        <option value="d">I don't know</option>
+                    </select>
+                </div>
+            </li>
+            <div class="hint" id="hint1">Incorrect: Go back to the previous slide</div>
+
+            <!--Question 2-->
+            <li>
+                <div class="inst-question">
+                    <label for="Q2"> How many total trials will you complete? </label>
+                </div>
+                <div class="answer-field">
+                    <select name="Q2" id="Q2" class="dropdown ControlQuestions">
+                        <option value="nothing">--Select--</option>
+                        <option value="a">60</option>
+                        <option value="b">72</option>
+                        <option value="c">100</option>
+                    </select>
+                </div>
+            </li>
+            <div class="hint" id="hint2">Incorrect: See the first slide again</div>
+
+            <!-- Question 3 -->
+            <li>
+                <div class="inst-question">
+                    <label for="Q3"> Do your decisions affect the bonus payment? </label>
+                </div>
+                <div class="answer-field">
+                    <select name="Q3" id="Q3" class="dropdown ControlQuestions">
+                        <option value="nothing">--Select--</option>
+                        <option value="a">True</option>
+                        <option value="b">False</option>
+                    </select>
+                </div>
+            </li>
+            <div class="hint" id="hint3">Incorrect: See slide on payment</div>
+
+            <!-- Question 4 -->
+            <li>
+                <div class="inst-question">
+                    <label for="Q4"> How do you reveal the product information? </label>
+                </div>
+                <div class="answer-field">
+                    <select name="Q4" id="Q4" class="dropdown ControlQuestions">
+                        <option value="nothing">--Select--</option>
+                        <option value="a">Click</option>
+                        <option value="b">Hover</option>
+                        <option value="c">Tap</option>
+                        <option value="d">It's already visible</option>
+                    </select>
+                </div>
+            </li>
+            <div class="hint" id="hint4">Incorrect: Go back to Slide 2b</div>
+        </ul>
+        <button type="button" id="submitAnswer" class="button" onclick="ValidateSaveSubmit()">Submit</button>
+    </div>
+</div>
+{{ endblock }}
+
+{{ block app_styles }}
+<link href="{% static 'global/css/global.css' %}" rel="stylesheet">
+
+<style>
+    #img-example {
+        width: 50vw;
+        height: auto;
+    }
+    #img-example2 {
+        width: 75vw;
+        height: auto;
+    }
+    .text-container {
+        font-size: larger;
+    }
+    .greenbold {
+        color: green;
+        font-weight: bold;
+    }
+    .redbold {
+        color: darkred;
+        font-weight: bold;
+    }
+</style>
+{{ endblock }}
+
+{{ block app_scripts }}
+<script>
+  const lSolutions = js_vars.lSolutions;
+
+  function ValidateSaveSubmit() {
+    validateAnswers();
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    let lGreen = document.getElementsByClassName("greenbold");
+    let lRed = document.getElementsByClassName("redbold");
+
+    for (let i = 0; i < lGreen.length; i++) {
+        let span = document.createElement('span');
+        span.innerHTML = "Most sustainable";
+        span.classList.add("tooltiptext");
+        lGreen[i].appendChild(span);
+    }
+
+    for (let i = 0; i < lRed.length; i++) {
+        let span = document.createElement('span');
+        span.innerHTML = "Least sustainable";
+        span.classList.add("tooltiptext");
+        lRed[i].appendChild(span);
+    }
+  });
+</script>
+{{ endblock }}
+
+

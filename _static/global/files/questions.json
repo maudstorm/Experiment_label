@@ -1,0 +1,94 @@
+{
+    "lQuestions": [
+      {
+        "question": "What is your age?",
+        "name": "age",
+        "type": "shortOpen",
+        "validate": "validAge",
+        "invalidMessage": "warningAge"
+      },
+      {
+        "question": "Which gender do you identify the most with?",
+        "name": "gender",
+        "type": "radio",
+        "direction": "horizontal wrap",
+        "values": [1, 2, 3, 4],
+        "labels": [
+          "Female",
+          "Male",
+          "Other",
+          "Prefer not to say"
+        ]
+      },
+      {
+        "question": "What is your nationality?",
+        "name": "nationality",
+        "type": "autocomplete",
+        "list": "countryList"
+      },
+      {
+        "question": "Have you ever participated in an incentivized economic experiment (such as this one) before?",
+        "name": "prev_exp",
+        "type": "radio",
+        "direction": "horizontal wrap",
+        "values": [1, 2, 3],
+        "labels": ["Yes", "No", "Not sure / don't remember"]
+      },
+      {
+        "question": "Where would you put yourself in the socioeconomic ladder?",
+        "name": "SNE",
+        "type": "Likert",
+        "likertMax": 10,
+        "limits": ["worst off", "best off"],
+        "confirmRequired": true
+      },
+      {
+        "question": "Where would you place yourself in the political scale from extremely liberal to extremely conservative?",
+        "name": "political",
+        "type": "Likert",
+        "likertMax": 10,
+        "limits": ["Liberal (left)", "Conservative (right)"],
+        "confirmRequired": true
+      },
+      {
+        "question": "How important is sustainability to you when choosing products like household appliances?",
+        "name": "sustainability_importance",
+        "type": "Likert",
+        "likertMax": 10,
+        "limits": ["Not important", "Very important"],
+        "confirmRequired": true
+      },
+      {
+        "question": "Which of the following statements best reflects your understanding of energy label formats (e.g., A-G vs. A+++) before this experiment?",
+        "name": "label_familiarity",
+        "type": "radio",
+        "direction": "vertical",
+        "values": [1, 2, 3, 4],
+        "labels": [
+          "I was already familiar with both label formats.",
+          "I was only familiar with the A+++ label format.",
+          "I was only familiar with the A-G label format.",
+          "I was not familiar with either label format."
+        ]
+      },
+      {
+        "question": "After completing this experiment, do you feel that the label format (A-G vs. A+++) affected how sustainable a product seemed to you?",
+        "name": "label_format_effect",
+        "type": "radio",
+        "direction": "vertical",
+        "values": [1, 2, 3, 4],
+        "labels": [
+          "Yes, the A-G format made differences more clear.",
+          "Yes, the A+++ format made differences more clear.",
+          "No, I didn't notice a difference.",
+          "I'm not sure."
+        ]
+      },
+      {
+        "question": "What do you think is the purpose of this study? Describe shortly in your own words.",
+        "name": "purpose",
+        "type": "longOpen",
+        "blank": true
+      }
+    ]
+  }
