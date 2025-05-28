@@ -61,7 +61,7 @@ def creating_session(subsession):
             # Store any treatment variables or things that stay constant across rounds/apps
             p = player.participant
             # Assign general treatment for other parts of the app
-            if s.config['treatmentLogic'] == 'random':
+            if subsession.session.config['treatmentLogic'] == 'random':
                 p.sTreatment = random.choice(['value', 'nudge'])
             else:
                 p.sTreatment = s.config['treatment']

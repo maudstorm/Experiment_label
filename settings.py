@@ -20,9 +20,11 @@ SESSION_CONFIGS = [
     ),
     dict(
         name='Session',
-        app_sequence=['InformedConsent','Instructions','Task','Questionnaire'],
+        app_sequence=['InformedConsent','Instructions','TaskWithin','Questionnaire'],
         num_demo_participants=1,
         treatment = 'random', # Randomize between-subject treatment. 
+        treatmentLogic='random',         # ✅ add this
+        treatmentAI='random', 
     ),
 ]
 

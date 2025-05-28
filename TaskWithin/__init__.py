@@ -137,6 +137,7 @@ def creating_session(subsession):
              trial_index = rnd - C.NUM_PROUNDS - C.NUM_RROUNDS - 1
              trial_data = p.realTrials[C.NUM_RROUNDS + trial_index]
              player.phase = 2
+    
 
 
         player.originalTrial = trial_data.get('Trial', rnd)
@@ -213,6 +214,7 @@ class Decision(Page):
         if player.round_number == p.iSelectedTrial:
             p.sChoice = player.sChoice
             print(f"Decision in selected trial recorded: {p.sChoice}")
+
 
 class FixCross(Page):
     form_model = 'player'

@@ -48,7 +48,8 @@ class Intro(Page):
     def before_next_page(player: Player, timeout_happened):
 
         if timeout_happened:
-            player.participant.bTimeout = True
+         player.participant.vars['bTimeout'] = True
+
 
         sLabel = player.participant.label
         if sLabel==None:
@@ -60,7 +61,7 @@ class TimeOut(Page):
 
     @staticmethod
     def is_displayed(player: Player):
-        return player.participant.bTimeout
+        return player.participant.vars.get('bTimeout', False)
     
     @staticmethod
     def js_vars(player: Player):

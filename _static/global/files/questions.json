@@ -59,6 +59,14 @@
         "confirmRequired": true
       },
       {
+        "question": "Do you trust energy labels as an indicator of a products environmental friendliness??",
+        "name": "energylabel_trust",
+        "type": "Likert",
+        "likertMax": 10,
+        "limits": ["Strongly disagree", "Strongly agree"],
+        "confirmRequired": true
+      },
+      {
         "question": "Which of the following statements best reflects your understanding of energy label formats (e.g., A-G vs. A+++) before this experiment?",
         "name": "label_familiarity",
         "type": "radio",
