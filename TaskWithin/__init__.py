@@ -24,7 +24,7 @@ class C(BaseConstants):
     SWITCH_ROUND = NUM_PROUNDS + NUM_RROUNDS + 1
 
     SWITCH_MESSAGE_GROUP_1 = """
-    Due to recent technological advancements and EU harmonization, the sustainability labeling system has been updated. 
+    Due to recent technological advancement, the sustainability labeling system has been updated. 
     Products will now use a simplified <strong>A to G</strong> scale instead of the previous <strong>A+++ to D</strong> labels. 
     The actual products and their environmental impact remain <strong>unchanged</strong> – only the labeling format has changed.
 
@@ -33,7 +33,7 @@ class C(BaseConstants):
     - The older scale used labels like <strong>A+++</strong>, <strong>A++</strong>, <strong>A+</strong>, <strong>A</strong>, <strong>B</strong>, <strong>C</strong>, and <strong>D</strong>.<br>
     - The new scale simplifies this to just <strong>A</strong> through <strong>G</strong>, with <strong>A</strong> reserved for future top-performing innovations.<br><br>
 
-    <strong>Rough label conversion:</strong><br>
+    <strong> Label conversion:</strong><br>
     - <strong>A+ ➜ B</strong><br>
     - <strong>A ➜ C</strong><br>
     - <strong>B ➜ D</strong><br>
@@ -45,7 +45,7 @@ class C(BaseConstants):
 
 
     SWITCH_MESSAGE_GROUP_2 = """
-    Due to technological improvements and increased market differentiation, the sustainability labeling system has been adjusted. 
+    Due to technological improvement, the sustainability labeling system has been adjusted. 
     Products will now use a more detailed <strong>A+++ to D</strong> scale instead of the simplified <strong>A to G</strong> format. 
     The actual products and their environmental impact remain <strong>unchanged</strong> - only the labels have changed.
 
@@ -53,7 +53,7 @@ class C(BaseConstants):
     <strong>What does this mean?</strong><br>
     - The simplified A-G scale is being replaced with a more granular system: <strong>A+++</strong> (highest) to <strong>D</strong> (lowest).<br><br>
 
-    <strong>Rough label conversion:</strong><br>
+    <strong> Label conversion:</strong><br>
     - <strong>B ➜ A+</strong><br>
     - <strong>C ➜ A</strong><br>
     - <strong>D ➜ B</strong><br>
