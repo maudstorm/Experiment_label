@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+
+{% block content %}
+    <h2>Final Message</h2>
+
+    {% if actually_paid %}
+        <p>🎉 Congratulations! You were randomly selected to receive a bonus.</p>
+        <p>Your bonus is: <strong>${{ bonus_amount }}</strong></p>
+        <p>🌱 Based on your choice, <strong>{{ trees_planted }}</strong> trees will be planted.</p>
+
+        <p>Please leave your email address below so we can contact you regarding the bonus payment:</p>
+
+        <input type="email" name="email_contact" required placeholder="your.email@example.com" style="width: 100%; max-width: 400px; padding: 0.5em;">
+
+        <br><br>
+        <button class="otree-btn-next btn btn-primary">Submit</button>
+
+    {% else %}
+        <p>You were not selected for a bonus payment.</p>
+        <p>Thank you very much for participating in our study.</p>
+        <button class="otree-btn-next btn btn-primary">Continue</button>
+    {% endif %}
+{% endblock %}
+
+

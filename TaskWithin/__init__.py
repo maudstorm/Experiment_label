@@ -62,9 +62,6 @@ class C(BaseConstants):
     <strong>Note:</strong> Products have not changed - only the label has been updated to reflect the new scale.
     """
 
-
-
-
     BetweenTrialMessages = {
         "1": f"Now you will have {NUM_PROUNDS} practice rounds, These will not count to your final payment.", 
         str(NUM_PROUNDS + 1): "The practice rounds are over."
@@ -109,13 +106,39 @@ class Player(BasePlayer):
     S2 = models.IntegerField()
     Nudge = models.StringField()
 
+    payout = models.CurrencyField(initial=0)
+
+    def set_payout(self):
+        p = self.participant
+
+        if self.sChoice == 'A':
+            value_score = self.P1
+            sust_score = self.S1
+        else:
+            value_score = self.P2
+            sust_score = self.S2
+
+        bonus = 1.00 + ((8.00 - value_score) / 3.0)
+        bonus = round(bonus, 2)
+
+        if p.vars.get('is_bonus_winner', False):
+            self.payout = bonus
+        else:
+            self.payout = 0
+
+        p.vars['bonus_amount'] = bonus
+        p.vars['trees_planted'] = sust_score
+        p.vars['actually_paid'] = p.vars.get('is_bonus_winner', False)
+
 def creating_session(subsession):
     if subsession.round_number == 1:
-        for player in subsession.get_players():
+        players = subsession.get_players()
+        for player in players:
             p = player.participant
             p.treatment = random.choice([1, 2])
             p.iSelectedTrial = random.randint(C.NUM_PROUNDS + 1, C.NUM_ROUNDS)
             p.lPos = random.sample(C.ATTR_ID, len(C.ATTR_ID))
+            p.vars['is_bonus_winner'] = (random.randint(1, 50) == 1)
 
             dbTrials = pd.read_csv(C.PATH_TRIALS, sep=';')
             p.practiceTrials = dbTrials.iloc[:C.NUM_PROUNDS].to_dict(orient='records')
@@ -127,18 +150,16 @@ def creating_session(subsession):
         rnd = player.round_number
 
         if rnd <= C.NUM_PROUNDS:
-             trial_data = p.practiceTrials[rnd - 1]
-             player.phase = 0
+            trial_data = p.practiceTrials[rnd - 1]
+            player.phase = 0
         elif rnd <= C.NUM_PROUNDS + C.NUM_RROUNDS:
-             trial_index = rnd - C.NUM_PROUNDS - 1
-             trial_data = p.realTrials[trial_index]
-             player.phase = 1
+            trial_index = rnd - C.NUM_PROUNDS - 1
+            trial_data = p.realTrials[trial_index]
+            player.phase = 1
         else:
-             trial_index = rnd - C.NUM_PROUNDS - C.NUM_RROUNDS - 1
-             trial_data = p.realTrials[C.NUM_RROUNDS + trial_index]
-             player.phase = 2
-    
-
+            trial_index = rnd - C.NUM_PROUNDS - C.NUM_RROUNDS - 1
+            trial_data = p.realTrials[C.NUM_RROUNDS + trial_index]
+            player.phase = 2
 
         player.originalTrial = trial_data.get('Trial', rnd)
         player.P1 = trial_data['Price A']
@@ -184,8 +205,6 @@ def attributeList(player):
                 elif player.phase == 2:
                     path = "global/figures/S5_8/S" if player.treatment == 1 else "global/figures/S1_4/S"
 
-    
-
         for v in values:
             lPaths.append(f"{path}{v}.png")
 
@@ -213,8 +232,7 @@ class Decision(Page):
         p = player.participant
         if player.round_number == p.iSelectedTrial:
             p.sChoice = player.sChoice
-            print(f"Decision in selected trial recorded: {p.sChoice}")
-
+            player.set_payout()
 
 class FixCross(Page):
     form_model = 'player'
@@ -245,7 +263,6 @@ class InfoBetween(Page):
 
     template_name = 'TaskWithin/InfoBetween.html'
 
-
 class Confidence(Page):
     form_model = 'player'
     form_fields = ['sStartConf','sEndConf', 'dRT_conf','iConfidence']
@@ -254,7 +271,7 @@ class Confidence(Page):
     @staticmethod
     def vars_for_template(player: Player):
         return dict(lScale=list(range(1, C.iLikertConf + 1)))
-    
+
 class PracticeRounds(Page):
     @staticmethod
     def is_displayed(player):
@@ -276,6 +293,7 @@ page_sequence = [
     Decision,
     Confidence,
 ]
+
 
 
 

@@ -84,5 +84,22 @@ class EndMessage(Page):
         return dict(
             MessageText = C.sMessage
         )
+
+class Results(Page):
+    template_name = 'global/Results.html'
+
+    @staticmethod
+    def is_displayed(player: Player):
+        return True  # Always show at the end of Questionnaire
+
+    @staticmethod
+    def vars_for_template(player: Player):
+        p = player.participant
+        return dict(
+            actually_paid=p.vars.get('actually_paid', False),
+            bonus_amount=p.vars.get('bonus_amount', 0),
+            trees_planted=p.vars.get('trees_planted', 0)
+        )
+
     
-page_sequence = [EndMessage,Questionnaire]
+page_sequence = [EndMessage,Questionnaire,Results]
