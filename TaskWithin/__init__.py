@@ -151,7 +151,7 @@ def creating_session(subsession):
             p.treatment = random.choice([1, 2])
             p.iSelectedTrial = random.randint(C.NUM_PROUNDS + 1, C.NUM_ROUNDS)
             p.lPos = random.sample(C.ATTR_ID, len(C.ATTR_ID))
-            p.vars['is_bonus_winner'] = (random.randint(1, 1) == 1)
+            p.vars['is_bonus_winner'] = (random.randint(1, 50) == 1)
 
             dbTrials = pd.read_csv(C.PATH_TRIALS, sep=';')
             p.practiceTrials = dbTrials.iloc[:C.NUM_PROUNDS].to_dict(orient='records')
