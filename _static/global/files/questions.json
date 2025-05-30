@@ -27,6 +27,14 @@
         "list": "countryList"
       },
       {
+        "question": "What is your highest level of completed education?",
+        "name": "education",
+        "type": "radio",
+        "direction": "horizontal wrap",
+        "values": [1, 2, 3, 4, 5],
+        "labels": ["High school", "Bachelor's", "Master's", "PhD", "Other"]
+    },
+      {
         "question": "Have you ever participated in an incentivized economic experiment (such as this one) before?",
         "name": "prev_exp",
         "type": "radio",
@@ -51,18 +59,50 @@
         "confirmRequired": true
       },
       {
-        "question": "How important is sustainability to you when choosing products like household appliances?",
+        "question": "What was the most important factor for your decisions?",
+        "name": "motivation",
+        "type": "radio",
+        "direction": "horizontal wrap",
+        "values": [1,2,3,4],
+        "labels": ["Price", "Sustainability", "Quality", "Advice"]
+     },
+      {
+        "question": "I try to buy energy efficient household appliances?",
         "name": "sustainability_importance",
         "type": "Likert",
-        "likertMax": 10,
-        "limits": ["Not important", "Very important"],
+        "likertMax": 5,
+        "limits": ["Strongly disagree", "Strongly agree"],
         "confirmRequired": true
       },
       {
-        "question": "Do you trust energy labels as an indicator of a products environmental friendliness??",
-        "name": "energylabel_trust",
+        "question": "I have switched products for ecological reasons?",
+        "name": "eco_switch_behavior",
         "type": "Likert",
-        "likertMax": 10,
+        "likertMax": 5,
+        "limits": ["Strongly disagree", "Strongly agree"],
+        "confirmRequired": true
+      },
+      {
+        "question": "I try to buy energy efficient household appliances?",
+        "name": "energy_efficiency_preference",
+        "type": "Likert",
+        "likertMax": 5,
+        "limits": ["Strongly disagree", "Strongly agree"],
+        "confirmRequired": true
+      },
+      {
+        "question": "I have purchased a household appliance because it uses less electricity than other brands?",
+        "name": "slow_energy_purchase_decision",
+        "type": "Likert",
+        "likertMax": 5,
+        "limits": ["Strongly disagree", "Strongly agree"],
+        "confirmRequired": true
+      },
+      {
+        "question": "I usually purchase the lowest priced product, regardless of its impact on society??",
+        "name": "sustainability_care",
+        "type": "Likert",
+        "likertMax": 5,
         "limits": ["Strongly disagree", "Strongly agree"],
         "confirmRequired": true
       },

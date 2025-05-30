@@ -111,24 +111,37 @@ class Player(BasePlayer):
     def set_payout(self):
         p = self.participant
 
+        # Determine which option was chosen
         if self.sChoice == 'A':
-            value_score = self.P1
-            sust_score = self.S1
+            price = self.P1
+            quality = self.Q1
+            sustainability = self.S1
+            alt_quality = self.Q2
         else:
-            value_score = self.P2
-            sust_score = self.S2
+            price = self.P2
+            quality = self.Q2
+            sustainability = self.S2
+            alt_quality = self.Q1
 
-        bonus = 1.00 + ((8.00 - value_score) / 3.0)
-        bonus = round(bonus, 2)
+        # --- CASH BONUS SECTION (max €5) ---
+        base_bonus = 5 - price  # Max €4.50 if price = €0.50
+        quality_bonus = max(0, alt_quality - quality) * 0.25  # Adjusted for smaller range
+        cash_bonus = round(min(base_bonus + quality_bonus, 5.00), 2)
 
         if p.vars.get('is_bonus_winner', False):
-            self.payout = bonus
+            self.payout = cash_bonus
         else:
-            self.payout = 0
+            self.payout = 0.00
 
-        p.vars['bonus_amount'] = bonus
-        p.vars['trees_planted'] = sust_score
-        p.vars['actually_paid'] = p.vars.get('is_bonus_winner', False)
+        # --- SUSTAINABILITY IMPACT (shown to everyone) ---
+        trees_planted = int(sustainability)  
+
+        # --- Store values ---
+        p.vars['bonus_amount'] = cash_bonus
+        p.vars['actually_paid'] = self.payout
+        p.vars['trees_planted'] = trees_planted
+
+
 
 def creating_session(subsession):
     if subsession.round_number == 1:
@@ -138,7 +151,7 @@ def creating_session(subsession):
             p.treatment = random.choice([1, 2])
             p.iSelectedTrial = random.randint(C.NUM_PROUNDS + 1, C.NUM_ROUNDS)
             p.lPos = random.sample(C.ATTR_ID, len(C.ATTR_ID))
-            p.vars['is_bonus_winner'] = (random.randint(1, 50) == 1)
+            p.vars['is_bonus_winner'] = (random.randint(1, 1) == 1)
 
             dbTrials = pd.read_csv(C.PATH_TRIALS, sep=';')
             p.practiceTrials = dbTrials.iloc[:C.NUM_PROUNDS].to_dict(orient='records')

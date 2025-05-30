@@ -12,7 +12,7 @@
             <li>You can stop your participation at any time; your data will be deleted.</li>
             <li>Your choices may lead to <b>bonus payments</b> and <b>tree donations</b>.</li>
             <li><b>One participant</b> will be randomly selected for bonus payout.</li>
-            <li>The experiment lasts approximately <b>20–25 minutes</b>.</li>
+            <li>The experiment lasts approximately <b>20-25 minutes</b>.</li>
         </ul>
         <i>Press → to continue reading</i>
     </div>
@@ -22,37 +22,52 @@
 </div>
 
 <!-- Slide 2a -->
-<div class="slide vertical">
-    <div class="img-container"> 
-        <img src="{{ static 'global/figures/example2.png' }}" class="img-instructions" alt="example of decision screen" id="img-example2"> 
-    </div>
-    <div class="text-container">
-        <h2>The Experiment</h2>
+<div class="slide">
+    <<div class="text-container">
+        <h2> The experiment: </h2>
         <ul>
-            <li>In this study you will make <b>purchasing decisions</b>.</li>
-            <li>The products that you will observe are <b>not real</b>.</li>
-            <li>There is no physical product, but your <b>decisions will have real consequences</b>.</li>
-            <li>Depending on your decisions, you can obtain an <b>additional bonus payment of up to £10</b> and support the environment by <b>planting trees in a location of your choosing</b>.</li>
-            <li>The trees will be planted by: <b>One <i>Tree</i> Planted</b>.</li>
-            <li>There are many locations where the trees could be planted.</li>
-            <li>
-                Would you like to choose where to plant the trees?
-                <select>
-                    <option>Anywhere</option>
-                    <option>South America</option>
-                    <option>Africa</option>
-                    <option>Asia</option>
-                    <option>North America</option>
-                    <option>Europe</option>
-                </select>
+            <li> In this experiment, you will make purhcasing decisions. </li>
+            <li> The products that you will observe are <b>not real.</b></li>
+            <li> There is no physical product, but your <u>decisions</u> will have <b>real consequences.</b></li>
+            <li> Depending on your <u>decisions</u>, you can obtain an additional <b>bonus payment of up to 5 euros</b> and help the environment by <b>planting trees in a location of your choosing.</b></li>
+            <li> The trees will be planted by:
+                <img src="{{ static 'global/figures/Instructions/OTP.png' }}" alt="One Tree Planted logo" style="height:1.6em; vertical-align: middle;">
+            </li>
+            <li> There are many locations where the trees could be planted. </li>
+            <li> Would you like to choose where to plant the trees? 
+                <br>
+                <label for="tree_country">Select a country:</label>
+                <input type="text" id="tree_country" name="tree_country" list="countryList" class="text-input" placeholder="e.g., Kenya">
+                <datalist id="countryList">
+                    <option value="Brazil"></option>
+                    <option value="Canada"></option>
+                    <option value="Colombia"></option>
+                    <option value="Costa Rica"></option>
+                    <option value="Dominican Republic"></option>
+                    <option value="Ecuador"></option>
+                    <option value="Guatemala"></option>
+                    <option value="Haiti"></option>
+                    <option value="Honduras"></option>
+                    <option value="India"></option>
+                    <option value="Indonesia"></option>
+                    <option value="Kenya"></option>
+                    <option value="Mexico"></option>
+                    <option value="Peru"></option>
+                    <option value="Rwanda"></option>
+                    <option value="Tanzania"></option>
+                    <option value="Uganda"></option>
+                    <option value="United States"></option>
+                    <option value="Vietnam"></option>
+                </datalist>
             </li>
         </ul>
+        <i>Press → to continue reading </i>
     </div>
 </div>
 
 
 <!-- Slide 2b Combined and Updated -->
-<div class="slide vertical">
+<div class="slide">
     <div class="text-container">
         <h2>Your Decisions</h2>
         <ul>
@@ -60,15 +75,15 @@
             <li>In each round, you will choose between <b>two products</b> that differ in:</li>
             <ul>
                 <li><b>Price</b> — the cost in £. Lower price = <b>higher bonus payments</b>.</li>
-                <li><b>Quality</b> — 1–2 star (⭐) rating. More stars = better quality. 
+                <li><b>Quality</b> — 1-2 star (⭐) rating. More stars = better quality. 
                     <br><i>Higher quality → higher bonus payments.</i>
                 </li>
                 <li><b>Eco-Label</b> — EU energy rating (e.g., {{ labelName }}). A higher letter (e.g., {{ labelMax }}) indicates greater sustainability. 
                     <br><i>Higher sustainability → more trees planted.</i>
                 </li>
                 <li><b>Sustainability</b> (shown using EU energy labels: <b>{{ labelName }}</b>)<br>
-                    <span class="greenbold">{{ labelMax }}</span><br>
-                    <span class="redbold">{{ labelMin }}</span>
+                    <span class="greenbold"> {{ labelMax }}</span><br>
+                    <span class="redbold"> {{ labelMin }}</span>
                 </li>
             </ul>
             <li>At the start of each round, all values are hidden.</li>
@@ -79,13 +94,14 @@
                 </ul>
             </li>
             <li>The label format will change halfway through, but your task stays the same.</li>
+            <li> After each decision, you will rate how <b>confident</b> you are in your choice. </li>
         </ul>
     </div>
 </div>
 
 
 <!-- Slide 2c -->
-<div class="slide vertical"> 
+<div class="slide"> 
     <div class="text-container">
         <h2>Bonus & Tree Donation</h2>
         <ul>
@@ -93,7 +109,7 @@
             <li>For the selected person, <b>one decision round</b> out of their 72 will be chosen at random.</li>
             <li>The bonus and tree donation will be based on the chosen round:
                 <ul>
-                    <li><b>Bonus = Quality rating – Price</b></li>
+                    <li><b>Bonus = Quality rating - Price</b></li>
                     <li><b>Sustainability rating</b> determines the number of <b>trees planted</b></li>
                 </ul>
             </li>
@@ -102,10 +118,22 @@
                 <i>Higher rating → Higher value.</i>
             </li>
             <li>Tree donations are symbolic and made via a certified organization.</li>
-            <li><i>You won’t know if you’re selected — so treat each decision as important.</i></li>
+            <li><i>You won't know if you're selected — so treat each decision as important.</i></li>
         </ul>
     </div>
 </div>
+
+  <!-- Slide 6: Purchasing platform -->
+  <div class="slide horizontal">
+    <div class="text-container">
+        <h2>Revealing attributes:</h2>
+        <p>The product characteristics (Price, Quality, Sustainability) for each product will be behind <i>'boxes'</i>.</p>
+        <p>To reveal the information, all you need to do is to <b>move your mouse on top of the <i>'box'</i></b> and the information will be revealed. </p>
+        <p>Here is an example:</p>
+    </div>
+    <div class="img-container"> <img src="{{ static 'global/figures/Instructions/Hover.gif' }}" alt="Demo of hover interaction" class="img-instructions"></div>
+</div> 
+
 
 
 <!-- Slide 3: Control Questions -->
@@ -176,7 +204,7 @@
                     </select>
                 </div>
             </li>
-            <div class="hint" id="hint4">Incorrect: Go back to Slide 2b</div>
+            <div class="hint" id="hint4">Incorrect: Go back to the Your Decisions slide</div>
         </ul>
         <button type="button" id="submitAnswer" class="button" onclick="ValidateSaveSubmit()">Submit</button>
     </div>
