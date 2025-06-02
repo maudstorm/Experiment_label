@@ -10,8 +10,8 @@ Your app description
 class C(BaseConstants):
     NAME_IN_URL = 'TaskWithin'
     PLAYERS_PER_GROUP = None
-    NUM_PROUNDS = 1
-    NUM_RROUNDS = 3
+    NUM_PROUNDS = 3
+    NUM_RROUNDS = 36
     NUM_ROUNDS = NUM_PROUNDS + 2 * NUM_RROUNDS
     ATTR_ID = ['P', 'Q', 'S']
     ATTR_NAMES = ['Price', 'Quality', 'Sustainability']
