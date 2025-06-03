@@ -83,14 +83,6 @@
         "confirmRequired": true
       },
       {
-        "question": "I try to buy energy efficient household appliances?",
-        "name": "energy_efficiency_preference",
-        "type": "Likert",
-        "likertMax": 5,
-        "limits": ["Strongly disagree", "Strongly agree"],
-        "confirmRequired": true
-      },
-      {
         "question": "I have purchased a household appliance because it uses less electricity than other brands?",
         "name": "slow_energy_purchase_decision",
         "type": "Likert",
