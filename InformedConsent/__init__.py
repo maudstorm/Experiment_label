@@ -51,8 +51,9 @@ class Intro(Page):
          player.participant.vars['bTimeout'] = True
 
 
-        if player.participant.label is None:
-         player.participant.label = player.session._params.get('participant_label') or 'NO_ID'
+        sLabel = player.participant.label
+        if sLabel==None:
+            player.participant.label = randomString()
     
 class TimeOut(Page):
     form_model = 'player'
